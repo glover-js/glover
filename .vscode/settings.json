@@ -1,0 +1,12 @@
+{
+  "editor.rulers": [80],
+  "files.exclude": {
+    "**/.git": true,
+    "**/node_modules": true,
+    "**/dist": true
+  },
+  "editor.formatOnSave": true,
+  "javascript.format.enable": false,
+  "flow.useNPMPackagedFlow": true,
+  "prettier.eslintIntegration": true
+}
