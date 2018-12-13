@@ -1,0 +1,31 @@
+{
+  "name": "glover",
+  "description": "TBD",
+  "version": "1.0.0",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
+  "bin": {
+    "glover": "dist/bin/cli.js"
+  },
+  "dependencies": {
+    "glover-jest": "1.0.0",
+    "glover-logger": "1.0.0",
+    "glover-resolver": "1.0.0",
+    "inquirer": "^6.2.1",
+    "mustache": "^3.0.1",
+    "ora": "^3.0.0",
+    "yargs": "^12.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glover-js/glover"
+  },
+  "bugs": {
+    "url": "https://github.com/glover-js/glover/issues"
+  },
+  "homepage": "https://glover-js.github.io/",
+  "license": "MIT",
+  "keywords": [
+    "TBD"
+  ]
+}
