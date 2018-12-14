@@ -13,81 +13,119 @@ export default [
     input: 'packages/glover/src/index.js',
     output: [
       { file: glover.main, format: 'cjs', dir: 'packages/glover/dist' },
-      { file: glover.module, format: 'es', dir: 'packages/glover/dist' }
+      { file: glover.module, format: 'es', dir: 'packages/glover/dist' },
     ],
     plugins: [
       babel({
-        exclude: ['**/node_modules/**']
+        exclude: ['**/node_modules/**'],
       }),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   },
   {
     // glover (cli)
     input: 'packages/glover/src/bin/cli.js',
-    output: [{ file: glover.bin.glover, format: 'cjs', dir: 'packages/glover/dist/cli' }],
+    output: [
+      {
+        file: glover.bin.glover,
+        format: 'cjs',
+        dir: 'packages/glover/dist/cli',
+      },
+    ],
     plugins: [
       babel({
-        exclude: ['node_modules/**']
+        exclude: ['node_modules/**'],
       }),
-      commonjs()
+      commonjs(),
     ],
-    external: ['yargs']
+    external: ['yargs'],
   },
   {
     // glover-jest
     input: 'packages/glover-jest/src/index.js',
     output: [
-      { file: gloverJest.main, format: 'cjs', dir: 'packages/glover-jest/dist' },
-      { file: gloverJest.module, format: 'es', dir: 'packages/glover-jest/dist' }
+      {
+        file: gloverJest.main,
+        format: 'cjs',
+        dir: 'packages/glover-jest/dist',
+      },
+      {
+        file: gloverJest.module,
+        format: 'es',
+        dir: 'packages/glover-jest/dist',
+      },
     ],
     plugins: [
       babel({
-        exclude: ['**/node_modules/**']
+        exclude: ['**/node_modules/**'],
       }),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   },
   {
     // glover-logger
     input: 'packages/glover-logger/src/index.js',
     output: [
-      { file: gloverLogger.main, format: 'cjs', dir: 'packages/glover-logger/dist' },
-      { file: gloverLogger.module, format: 'es', dir: 'packages/glover-logger/dist' }
+      {
+        file: gloverLogger.main,
+        format: 'cjs',
+        dir: 'packages/glover-logger/dist',
+      },
+      {
+        file: gloverLogger.module,
+        format: 'es',
+        dir: 'packages/glover-logger/dist',
+      },
     ],
     plugins: [
       babel({
-        exclude: ['**/node_modules/**']
+        exclude: ['**/node_modules/**'],
       }),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   },
   {
     // glover-mock
     input: 'packages/glover-mock/src/index.js',
     output: [
-      { file: gloverMock.main, format: 'cjs', dir: 'packages/glover-mock/dist' },
-      { file: gloverMock.module, format: 'es', dir: 'packages/glover-mock/dist' }
+      {
+        file: gloverMock.main,
+        format: 'cjs',
+        dir: 'packages/glover-mock/dist',
+      },
+      {
+        file: gloverMock.module,
+        format: 'es',
+        dir: 'packages/glover-mock/dist',
+      },
     ],
     plugins: [
       babel({
-        exclude: ['**/node_modules/**']
+        exclude: ['**/node_modules/**'],
       }),
-      commonjs()
-    ]
+      commonjs(),
+    ],
   },
   {
     // glover-resolver
     input: 'packages/glover-resolver/src/index.js',
     output: [
-      { file: gloverResolver.main, format: 'cjs', dir: 'packages/glover-resolver/dist' },
-      { file: gloverResolver.module, format: 'es', dir: 'packages/glover-resolver/dist' }
+      {
+        file: gloverResolver.main,
+        format: 'cjs',
+        dir: 'packages/glover-resolver/dist',
+      },
+      {
+        file: gloverResolver.module,
+        format: 'es',
+        dir: 'packages/glover-resolver/dist',
+      },
     ],
     plugins: [
       babel({
-        exclude: ['**/node_modules/**']
+        exclude: ['**/node_modules/**'],
       }),
-      commonjs()
-    ]
-  }
+      commonjs(),
+    ],
+  },
 ];

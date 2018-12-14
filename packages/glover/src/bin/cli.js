@@ -8,7 +8,7 @@ const modules = [
   gloverJest(),
   gloverLogger(),
   gloverResolver(),
-  '+ glover-mock (non dependency)'
+  '+ glover-mock (non dependency)',
 ];
 
 console.log(modules);
