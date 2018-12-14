@@ -5,7 +5,7 @@
 
 /node_modules
 /coverage
-/package-lock.json
+package-lock.json
 
 /packages/*/dist/
 /packages/*/coverage/
