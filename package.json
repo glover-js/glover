@@ -15,6 +15,7 @@
     "eslint-plugin-flowtype": "^3.2.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-markdown": "^1.0.0-rc.0",
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.87.0",
@@ -35,7 +36,7 @@
     "test:all": "yarn typecheck && yarn lint && yarn test",
     "test:ci": "yarn typecheck && yarn lint && yarn coverage && yarn coveralls",
     "typecheck": "flow check --include-warnings",
-    "lint": "eslint packages",
+    "lint": "eslint . --ext js,md",
     "coverage": "jest --coverage",
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
