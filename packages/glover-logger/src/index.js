@@ -1,6 +1,12 @@
 // @flow
-import type { PackageString } from 'types/PackageString';
+import getDeprecatedMessage from './getDeprecatedMessage';
+import getNotFoundMessage from './getNotFoundMessage';
+import getOnDenylistMessage from './getOnDenylistMessage';
+import Logger from './Logger';
 
-export default function(): PackageString {
-  return 'glover-logger';
-}
+export default {
+  getDeprecatedMessage,
+  getNotFoundMessage,
+  getOnDenylistMessage,
+  Logger,
+};

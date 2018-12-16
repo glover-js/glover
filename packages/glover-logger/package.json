@@ -15,5 +15,8 @@
   "license": "MIT",
   "keywords": [
     "TBD"
-  ]
+  ],
+  "dependencies": {
+    "chalk": "^2.4.1"
+  }
 }

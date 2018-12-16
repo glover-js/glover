@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for Logger .getLogEntriesOfType returns all log entries of the specified type 1`] = `
+Array [
+  Object {
+    "message": "warn-message",
+    "type": "warn",
+  },
+]
+`;
+
+exports[`Tests for Logger logging does not use any colors if useColors = false 1`] = `
+Array [
+  Array [
+    "   log-message",
+  ],
+  Array [
+    "ℹ  info-message",
+  ],
+  Array [
+    "✔  success-message",
+  ],
+  Array [
+    "⚠  warn-message",
+  ],
+  Array [
+    "✖  error-message",
+  ],
+  Array [
+    "[DEBUG]  debug-message",
+  ],
+]
+`;
+
+exports[`Tests for Logger logging does not use any symbols if useSymbols = false 1`] = `
+Array [
+  Array [
+    "log-message",
+  ],
+  Array [
+    "[34minfo-message[39m",
+  ],
+  Array [
+    "[32msuccess-message[39m",
+  ],
+  Array [
+    "[33mwarn-message[39m",
+  ],
+  Array [
+    "[31merror-message[39m",
+  ],
+  Array [
+    "[35mdebug-message[39m",
+  ],
+]
+`;
+
+exports[`Tests for Logger logging formats and logs messages to the console 1`] = `
+Array [
+  Array [
+    "   log-message",
+  ],
+  Array [
+    "[34mℹ  info-message[39m",
+  ],
+  Array [
+    "[32m✔  success-message[39m",
+  ],
+  Array [
+    "[33m⚠  warn-message[39m",
+  ],
+  Array [
+    "[31m✖  error-message[39m",
+  ],
+]
+`;
+
+exports[`Tests for Logger logging logs debug messages if logLevel = debug 1`] = `
+Array [
+  Array [
+    "   log-message",
+  ],
+  Array [
+    "[34mℹ  info-message[39m",
+  ],
+  Array [
+    "[32m✔  success-message[39m",
+  ],
+  Array [
+    "[33m⚠  warn-message[39m",
+  ],
+  Array [
+    "[31m✖  error-message[39m",
+  ],
+  Array [
+    "[35m[DEBUG]  debug-message[39m",
+  ],
+]
+`;
+
+exports[`Tests for Logger save entries saves all logged messages if saveEntries = true 1`] = `
+Array [
+  Object {
+    "message": "log-message",
+    "type": "default",
+  },
+  Object {
+    "message": "info-message",
+    "type": "info",
+  },
+  Object {
+    "message": "success-message",
+    "type": "success",
+  },
+  Object {
+    "message": "warn-message",
+    "type": "warn",
+  },
+  Object {
+    "message": "error-message",
+    "type": "error",
+  },
+]
+`;
+
+exports[`Tests for Logger write to logfile only writes to logfile if writeToFile = true 1`] = `Array []`;
+
+exports[`Tests for Logger write to logfile writes all logged messages to a logfile if writeToFile = true 1`] = `Array []`;
