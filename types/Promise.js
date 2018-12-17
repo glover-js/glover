@@ -1,3 +1,3 @@
 // @flow
-export type Resolve<T> = (value: T) => void;
-export type Reject = (err: Error) => void;
+export type ResolveFn<T> = (value: T) => void;
+export type RejectFn = (err: Error) => void;

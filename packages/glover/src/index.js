@@ -1,6 +1,4 @@
 // @flow
-import type { PackageString } from 'types/PackageString';
+import type { RunConfig } from 'types/Config';
 
-export default function(): PackageString {
-  return 'glover';
-}
+export default function run(config: RunConfig): void {}

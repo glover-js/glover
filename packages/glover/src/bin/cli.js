@@ -1,14 +1,15 @@
 // @flow
-import type { Argv, ExtendedArgv } from 'types/Yargs';
-import type { Resolve, Reject } from 'types/Promise';
+import type { Argv } from 'types/Yargs';
+import type { ResolveFn, RejectFn } from 'types/Promise';
+import type { RunConfig } from 'types/config';
 
 import yargs from 'yargs';
 import { brew, pick, compose } from './commands';
 import { dryRun, silent, noPrompt, debug } from './options';
 import run from '..';
 
-export function parseArgv(argv: Array<string>): Promise<ExtendedArgv> {
-  return new Promise((resolve: Resolve<ExtendedArgv>, reject: Reject) => {
+export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
+  return new Promise((resolve: ResolveFn<RunConfig>, reject: RejectFn) => {
     yargs
       .scriptName('glover')
       .command(brew.cmd, brew.desc, brew.builder)
@@ -19,15 +20,16 @@ export function parseArgv(argv: Array<string>): Promise<ExtendedArgv> {
       .option(noPrompt.key, noPrompt.options)
       .option(debug.key, debug.options)
       .wrap(120)
-      .parse(argv.slice(2), (err: Error, parsedArgs: Argv, output: string) => {
+      .parse(rawArgv.slice(2), (err: Error, argv: Argv, output: string) => {
         if (err) {
           return reject(err);
         }
         return resolve({
-          arguments: parsedArgs,
-          command: parsedArgs._[0] || 'brew',
-          output,
           argv,
+          // $FlowFixMe
+          command: argv._[0] || 'brew',
+          output,
+          rawArgv,
         });
       });
   });
@@ -35,12 +37,12 @@ export function parseArgv(argv: Array<string>): Promise<ExtendedArgv> {
 
 if (process.env.NODE_ENV !== 'test') {
   parseArgv(process.argv)
-    .then((args: ExtendedArgv) => {
-      if (args.output) {
-        console.log(args.output); // eslint-disable-line no-console
+    .then((runConfig: RunConfig) => {
+      if (runConfig.output) {
+        console.log(runConfig.output); // eslint-disable-line no-console
         process.exit(0);
       }
-      return run(args);
+      return run(runConfig);
     })
     .catch((err: Error) => {
       console.log(err); // eslint-disable-line no-console
