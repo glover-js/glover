@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for commands brew exposes a correct builder function 1`] = `
+Array [
+  Array [
+    "recipe",
+    Object {
+      "describe": "The recipe you want to brew",
+      "type": "string",
+    },
+  ],
+]
+`;
+
+exports[`Tests for commands brew exposes a correct builder function 2`] = `
+Array [
+  Array [
+    "skipInstall",
+    Object {
+      "default": false,
+      "describe": "Skip npm/yarn install",
+      "type": "boolean",
+    },
+  ],
+  Array [
+    "skipIngredient",
+    Object {
+      "default": Array [],
+      "describe": "Skip ingredients in the recipe",
+      "type": "array",
+    },
+  ],
+  Array [
+    "skipStep",
+    Object {
+      "default": Array [],
+      "describe": "Skip steps in the recipe",
+      "type": "array",
+    },
+  ],
+]
+`;
+
+exports[`Tests for commands compose exposes a correct builder function 1`] = `
+Array [
+  Array [
+    "name",
+    Object {
+      "describe": "The name of your recipe",
+      "type": "string",
+    },
+  ],
+  Array [
+    "ingredients",
+    Object {
+      "describe": "Ingredients you want to include in your recipe",
+      "type": "array",
+    },
+  ],
+]
+`;
+
+exports[`Tests for commands compose exposes a correct builder function 2`] = `
+Array [
+  Array [
+    "extend",
+    Object {
+      "alias": "e",
+      "default": Array [],
+      "describe": "Recipe(s) you want to extend",
+      "type": "array",
+    },
+  ],
+  Array [
+    "output",
+    Object {
+      "alias": "o",
+      "default": "/Users/ollelauribostrom/Desktop/glover",
+      "describe": "Output path",
+      "type": "string",
+    },
+  ],
+]
+`;
+
+exports[`Tests for commands pick exposes a correct builder function 1`] = `
+Array [
+  Array [
+    "ingredients",
+    Object {
+      "describe": "The ingredients you want to pick",
+      "type": "array",
+    },
+  ],
+]
+`;
+
+exports[`Tests for commands pick exposes a correct builder function 2`] = `
+Array [
+  Array [
+    "prompt",
+    Object {
+      "alias": "p",
+      "default": false,
+      "describe": "",
+      "type": "boolean",
+    },
+  ],
+  Array [
+    "output",
+    Object {
+      "alias": "o",
+      "default": "/Users/ollelauribostrom/Desktop/glover",
+      "describe": "Output path",
+      "type": "string",
+    },
+  ],
+]
+`;

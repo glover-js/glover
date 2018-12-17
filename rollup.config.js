@@ -29,7 +29,8 @@ export default [
       {
         file: glover.bin.glover,
         format: 'cjs',
-        dir: 'packages/glover/dist/cli',
+        dir: 'packages/glover/dist/bin',
+        banner: '#!/usr/bin/env node',
       },
     ],
     plugins: [

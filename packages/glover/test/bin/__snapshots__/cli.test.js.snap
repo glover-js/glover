@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for cli --help generates usage information 1`] = `
+"glover [recipe]
+
+Brew a recipe
+
+Commands:
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+  glover brew [recipe]                    Brew a recipe                                                        [default]
+  glover pick [ingredients...]            Pick ingredients from a recipe
+  glover compose [name] [ingredients...]  compose a new recipe
+
+Positionals:
+  recipe  The recipe you want to brew                                                                           [string]
+
+Options:
+  --help            Show help                                                                                  [boolean]
+  --version         Show version number                                                                        [boolean]
+  --dryRun          Run the command without generating any files                              [boolean] [default: false]
+  --silent          Prevent the command from printing anything to the console                 [boolean] [default: false]
+  --noPrompt        Prevent the command from prompting for values                             [boolean] [default: false]
+  --debug           Print debugging info                                                      [boolean] [default: false]
+  --skipInstall     Skip npm/yarn install                                                     [boolean] [default: false]
+  --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
+  --skipStep        Skip steps in the recipe                                                       [array] [default: []]"
+`;
+
+exports[`Tests for cli --help generates usage information for brew command 1`] = `
+"glover brew [recipe]
+
+Brew a recipe
+
+Positionals:
+  recipe  The recipe you want to brew                                                                           [string]
+
+Options:
+  --help            Show help                                                                                  [boolean]
+  --version         Show version number                                                                        [boolean]
+  --dryRun          Run the command without generating any files                              [boolean] [default: false]
+  --silent          Prevent the command from printing anything to the console                 [boolean] [default: false]
+  --noPrompt        Prevent the command from prompting for values                             [boolean] [default: false]
+  --debug           Print debugging info                                                      [boolean] [default: false]
+  --skipInstall     Skip npm/yarn install                                                     [boolean] [default: false]
+  --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
+  --skipStep        Skip steps in the recipe                                                       [array] [default: []]"
+`;
+
+exports[`Tests for cli --help generates usage information for compose command 1`] = `
+"glover compose [name] [ingredients...]
+
+compose a new recipe
+
+Positionals:
+  recipe       The recipe you want to brew                                                                      [string]
+  name         The name of your recipe                                                                          [string]
+  ingredients  Ingredients you want to include in your recipe                                      [array] [default: []]
+
+Options:
+  --help            Show help                                                                                  [boolean]
+  --version         Show version number                                                                        [boolean]
+  --dryRun          Run the command without generating any files                              [boolean] [default: false]
+  --silent          Prevent the command from printing anything to the console                 [boolean] [default: false]
+  --noPrompt        Prevent the command from prompting for values                             [boolean] [default: false]
+  --debug           Print debugging info                                                      [boolean] [default: false]
+  --skipInstall     Skip npm/yarn install                                                     [boolean] [default: false]
+  --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
+  --skipStep        Skip steps in the recipe                                                       [array] [default: []]
+  --extend, -e      Recipe(s) you want to extend                                                   [array] [default: []]
+  --output, -o      Output path                             [string] [default: \\"/Users/ollelauribostrom/Desktop/glover\\"]"
+`;
+
+exports[`Tests for cli --help generates usage information for pick command 1`] = `
+"glover pick [ingredients...]
+
+Pick ingredients from a recipe
+
+Positionals:
+  recipe       The recipe you want to brew                                                                      [string]
+  ingredients  The ingredients you want to pick                                                    [array] [default: []]
+
+Options:
+  --help            Show help                                                                                  [boolean]
+  --version         Show version number                                                                        [boolean]
+  --dryRun          Run the command without generating any files                              [boolean] [default: false]
+  --silent          Prevent the command from printing anything to the console                 [boolean] [default: false]
+  --noPrompt        Prevent the command from prompting for values                             [boolean] [default: false]
+  --debug           Print debugging info                                                      [boolean] [default: false]
+  --skipInstall     Skip npm/yarn install                                                     [boolean] [default: false]
+  --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
+  --skipStep        Skip steps in the recipe                                                       [array] [default: []]
+  --prompt, -p                                                                                [boolean] [default: false]
+  --output, -o      Output path                             [string] [default: \\"/Users/ollelauribostrom/Desktop/glover\\"]"
+`;

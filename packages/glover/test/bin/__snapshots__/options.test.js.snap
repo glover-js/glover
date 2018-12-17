@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tests for options exposes the correct options 1`] = `
+Object {
+  "debug": Object {
+    "key": "debug",
+    "options": Object {
+      "default": false,
+      "describe": "Print debugging info",
+      "type": "boolean",
+    },
+  },
+  "dryRun": Object {
+    "key": "dryRun",
+    "options": Object {
+      "default": false,
+      "describe": "Run the command without generating any files",
+      "type": "boolean",
+    },
+  },
+  "noPrompt": Object {
+    "key": "noPrompt",
+    "options": Object {
+      "default": false,
+      "describe": "Prevent the command from prompting for values",
+      "type": "boolean",
+    },
+  },
+  "silent": Object {
+    "key": "silent",
+    "options": Object {
+      "default": false,
+      "describe": "Prevent the command from printing anything to the console",
+      "type": "boolean",
+    },
+  },
+}
+`;
