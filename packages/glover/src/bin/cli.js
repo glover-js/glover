@@ -6,7 +6,7 @@ import type { RunConfig } from 'types/config';
 import yargs from 'yargs';
 import { brew, pick, compose } from './commands';
 import { dryRun, silent, noPrompt, debug } from './options';
-import run from '..';
+import glover from '..';
 
 export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
   return new Promise((resolve: ResolveFn<RunConfig>, reject: RejectFn) => {
@@ -42,7 +42,7 @@ if (process.env.NODE_ENV !== 'test') {
         console.log(runConfig.output); // eslint-disable-line no-console
         process.exit(0);
       }
-      return run(runConfig);
+      return glover.run(runConfig);
     })
     .catch((err: Error) => {
       console.log(err); // eslint-disable-line no-console

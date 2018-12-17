@@ -4,219 +4,201 @@ import { version } from '../../package.json';
 describe('Tests for cli', () => {
   describe('command: brew', () => {
     it('defaults to brew', async () => {
-      const { command } = await parseArgv(['./', './', 'recipe-test']);
+      const input = ['', '', 'recipe-test'];
+      const { command } = await parseArgv(input);
       expect(command).toEqual('brew');
     });
     it('can be invoked with brew', async () => {
-      const { command } = await parseArgv(['./', './', 'brew', 'recipe-test']);
+      const input = ['', '', 'brew', 'recipe-test'];
+      const { command } = await parseArgv(input);
       expect(command).toEqual('brew');
     });
     it('handles arguments to the recipe', async () => {
-      const args = await parseArgv([
-        './',
-        './',
-        'brew',
-        'recipe-test',
-        '--title',
-        'example',
-        '--license',
-        'MIT',
-      ]);
-      expect(args.arguments.title).toEqual('example');
-      expect(args.arguments.license).toEqual('MIT');
+      const input = ['', '', 'brew', 'recipe-test', '--a', 'b', '--c', 'd'];
+      const { argv } = await parseArgv(input);
+      expect(argv.a).toEqual('b');
+      expect(argv.c).toEqual('d');
     });
     it('handles the --skipInstall flag', async () => {
-      const argsA = await parseArgv([
-        './',
-        './',
-        'recipe-test',
-        '--skipInstall',
-      ]);
-      const argsB = await parseArgv(['./', './', 'recipe-test']);
-      expect(argsA.arguments.skipInstall).toEqual(true);
-      expect(argsB.arguments.skipInstall).toEqual(false);
+      const inputA = ['', '', 'recipe-test', '--skipInstall'];
+      const inputB = ['', '', 'recipe-test'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      expect(configA.argv.skipInstall).toEqual(true);
+      expect(configB.argv.skipInstall).toEqual(false);
     });
     it('handles the --skipIngredient flag', async () => {
-      const argsA = await parseArgv([
-        './',
-        './',
-        'recipe-test',
-        '--skipIngredient',
-        'a',
-      ]);
-      const argsB = await parseArgv([
-        './',
-        './',
-        'recipe-test',
-        '--skipIngredient',
-        'a',
-        'b',
-        'c',
-      ]);
-      const argsC = await parseArgv(['./', './', 'recipe-test']);
-      expect(argsA.arguments.skipIngredient).toEqual(['a']);
-      expect(argsB.arguments.skipIngredient).toEqual(['a', 'b', 'c']);
-      expect(argsC.arguments.skipIngredient).toEqual([]);
+      const inputA = ['', '', 'recipe-test', '--skipIngredient', 'a'];
+      const inputB = ['', '', 'recipe-test', '--skipIngredient', 'a', 'b'];
+      const inputC = ['', '', 'recipe-test'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.skipIngredient).toEqual(['a']);
+      expect(configB.argv.skipIngredient).toEqual(['a', 'b']);
+      expect(configC.argv.skipIngredient).toEqual([]);
     });
     it('handles the --skipStep flag', async () => {
-      const argsA = await parseArgv([
-        './',
-        './',
-        'recipe-test',
-        '--skipStep',
-        'a',
-      ]);
-      const argsB = await parseArgv([
-        './',
-        './',
-        'recipe-test',
-        '--skipStep',
-        'a',
-        'b',
-        'c',
-      ]);
-      const argsC = await parseArgv(['./', './', 'recipe-test']);
-      expect(argsA.arguments.skipStep).toEqual(['a']);
-      expect(argsB.arguments.skipStep).toEqual(['a', 'b', 'c']);
-      expect(argsC.arguments.skipStep).toEqual([]);
+      const inputA = ['', '', 'recipe-test', '--skipStep', 'a'];
+      const inputB = ['', '', 'recipe-test', '--skipStep', 'a', 'b'];
+      const inputC = ['', '', 'recipe-test'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.skipStep).toEqual(['a']);
+      expect(configB.argv.skipStep).toEqual(['a', 'b']);
+      expect(configC.argv.skipStep).toEqual([]);
     });
   });
   describe('command: pick', () => {
     it('handles the ingredients argument', async () => {
-      const argsA = await parseArgv(['./', './', 'pick', 'index.html']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', 'b']);
-      expect(argsA.command).toEqual('pick');
-      expect(argsA.arguments.ingredients).toEqual(['index.html']);
-      expect(argsB.arguments.ingredients).toEqual(['a', 'b']);
+      const inputA = ['', '', 'pick', 'index.html'];
+      const inputB = ['', '', 'pick', 'a', 'b'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      expect(configA.command).toEqual('pick');
+      expect(configA.argv.ingredients).toEqual(['index.html']);
+      expect(configB.argv.ingredients).toEqual(['a', 'b']);
     });
     it('handles additional arguments to the picked ingredient', async () => {
-      const args = await parseArgv(['./', './', 'pick', 'a', '--title', 'b']);
-      expect(args.arguments.ingredients).toEqual(['a']);
-      expect(args.arguments.title).toEqual('b');
+      const input = ['', '', 'pick', 'a', '--title', 'b'];
+      const { argv } = await parseArgv(input);
+      expect(argv.ingredients).toEqual(['a']);
+      expect(argv.title).toEqual('b');
     });
     it('handles the --prompt flag', async () => {
-      const argsA = await parseArgv(['./', './', 'pick', 'a', '--prompt']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--p']);
-      const argsC = await parseArgv(['./', './', 'pick', 'a']);
-      expect(argsA.arguments.prompt).toEqual(true);
-      expect(argsB.arguments.prompt).toEqual(true);
-      expect(argsC.arguments.prompt).toEqual(false);
+      const inputA = ['', '', 'pick', 'a', '--prompt'];
+      const inputB = ['', '', 'pick', 'a', '--p'];
+      const inputC = ['', '', 'pick', 'a'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.prompt).toEqual(true);
+      expect(configB.argv.prompt).toEqual(true);
+      expect(configC.argv.prompt).toEqual(false);
     });
     it('handles the --output flag', async () => {
-      const argsA = await parseArgv(['./', './', 'pick', 'a', '--output', 'p']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--o', 'p']);
-      const argsC = await parseArgv(['./', './', 'pick', 'a']);
-      expect(argsA.arguments.output).toEqual('p');
-      expect(argsB.arguments.output).toEqual('p');
-      expect(argsC.arguments.output).toEqual(process.cwd());
+      const inputA = ['', '', 'pick', 'a', '--output', 'p'];
+      const inputB = ['', '', 'pick', 'a', '--o', 'p'];
+      const inputC = ['', '', 'pick', 'a'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.output).toEqual('p');
+      expect(configB.argv.output).toEqual('p');
+      expect(configC.argv.output).toEqual(process.cwd());
     });
   });
   describe('command: compose', () => {
     it('handles the name argument', async () => {
-      const args = await parseArgv(['./', './', 'compose', 'recipe-name']);
-      expect(args.command).toEqual('compose');
-      expect(args.arguments.name).toEqual('recipe-name');
+      const input = ['', '', 'compose', 'recipe-name'];
+      const { command, argv } = await parseArgv(input);
+      expect(command).toEqual('compose');
+      expect(argv.name).toEqual('recipe-name');
     });
     it('handles the ingredients argument', async () => {
-      const argsA = await parseArgv(['./', './', 'compose', 'name', 'a']);
-      const argsB = await parseArgv(['./', './', 'compose', 'name', 'a', 'b']);
-      expect(argsA.arguments.ingredients).toEqual(['a']);
-      expect(argsB.arguments.ingredients).toEqual(['a', 'b']);
+      const inputA = ['', '', 'compose', 'name', 'a'];
+      const inputB = ['', '', 'compose', 'name', 'a', 'b'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      expect(configA.argv.ingredients).toEqual(['a']);
+      expect(configB.argv.ingredients).toEqual(['a', 'b']);
     });
     it('handles the --extend flag', async () => {
-      const argsA = await parseArgv([
-        './',
-        './',
-        'compose',
-        'name',
-        '--extend',
-        'a',
-      ]);
-      const argsB = await parseArgv([
-        './',
-        './',
-        'compose',
-        'name',
-        '--e',
-        'a',
-        'b',
-      ]);
-      const argsC = await parseArgv(['./', './', 'compose', 'name']);
-      expect(argsA.arguments.extend).toEqual(['a']);
-      expect(argsB.arguments.extend).toEqual(['a', 'b']);
-      expect(argsC.arguments.extend).toEqual([]);
+      const inputA = ['', '', 'compose', 'name', '--extend', 'a'];
+      const inputB = ['', '', 'compose', 'name', '--e', 'a', 'b'];
+      const inputC = ['', '', 'compose', 'name'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.extend).toEqual(['a']);
+      expect(configB.argv.extend).toEqual(['a', 'b']);
+      expect(configC.argv.extend).toEqual([]);
     });
     it('handles the --output flag', async () => {
-      const argsA = await parseArgv([
-        './',
-        './',
-        'compose',
-        'name',
-        '--output',
-        'p',
-      ]);
-      const argsB = await parseArgv(['./', './', 'compose', 'name', '-o', 'p']);
-      const argsC = await parseArgv(['./', './', 'compose', 'name']);
-      expect(argsA.arguments.output).toEqual('p');
-      expect(argsB.arguments.output).toEqual('p');
-      expect(argsC.arguments.output).toEqual(process.cwd());
+      const inputA = ['', '', 'compose', 'name', '--output', 'p'];
+      const inputB = ['', '', 'compose', 'name', '-o', 'p'];
+      const inputC = ['', '', 'compose', 'name'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.output).toEqual('p');
+      expect(configB.argv.output).toEqual('p');
+      expect(configC.argv.output).toEqual(process.cwd());
     });
   });
   describe('global options', () => {
     it('handles the --dryRun flag', async () => {
-      const argsA = await parseArgv(['./', './', 'recipe-test', '--dryRun']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--dryRun']);
-      const argsC = await parseArgv(['./', './', 'compose', 'b', '--dryRun']);
-      expect(argsA.arguments.dryRun).toEqual(true);
-      expect(argsB.arguments.dryRun).toEqual(true);
-      expect(argsC.arguments.dryRun).toEqual(true);
+      const inputA = ['', '', 'recipe-test', '--dryRun'];
+      const inputB = ['', '', 'pick', 'a', '--dryRun'];
+      const inputC = ['', '', 'compose', 'b', '--dryRun'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.dryRun).toEqual(true);
+      expect(configB.argv.dryRun).toEqual(true);
+      expect(configC.argv.dryRun).toEqual(true);
     });
     it('handles the --silent flag', async () => {
-      const argsA = await parseArgv(['./', './', 'recipe-test', '--silent']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--silent']);
-      const argsC = await parseArgv(['./', './', 'compose', 'b', '--silent']);
-      expect(argsA.arguments.silent).toEqual(true);
-      expect(argsB.arguments.silent).toEqual(true);
-      expect(argsC.arguments.silent).toEqual(true);
+      const inputA = ['', '', 'recipe-test', '--silent'];
+      const inputB = ['', '', 'pick', 'a', '--silent'];
+      const inputC = ['', '', 'compose', 'b', '--silent'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.silent).toEqual(true);
+      expect(configB.argv.silent).toEqual(true);
+      expect(configC.argv.silent).toEqual(true);
     });
     it('handles the --noPrompt flag', async () => {
-      const argsA = await parseArgv(['./', './', 'recipe-test', '--noPrompt']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--noPrompt']);
-      const argsC = await parseArgv(['./', './', 'compose', 'b', '--noPrompt']);
-      expect(argsA.arguments.noPrompt).toEqual(true);
-      expect(argsB.arguments.noPrompt).toEqual(true);
-      expect(argsC.arguments.noPrompt).toEqual(true);
+      const inputA = ['', '', 'recipe-test', '--noPrompt'];
+      const inputB = ['', '', 'pick', 'a', '--noPrompt'];
+      const inputC = ['', '', 'compose', 'b', '--noPrompt'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.noPrompt).toEqual(true);
+      expect(configB.argv.noPrompt).toEqual(true);
+      expect(configC.argv.noPrompt).toEqual(true);
     });
     it('handles the --debug flag', async () => {
-      const argsA = await parseArgv(['./', './', 'recipe-test', '--debug']);
-      const argsB = await parseArgv(['./', './', 'pick', 'a', '--debug']);
-      const argsC = await parseArgv(['./', './', 'compose', 'b', '--debug']);
-      expect(argsA.arguments.debug).toEqual(true);
-      expect(argsB.arguments.debug).toEqual(true);
-      expect(argsC.arguments.debug).toEqual(true);
+      const inputA = ['', '', 'recipe-test', '--debug'];
+      const inputB = ['', '', 'pick', 'a', '--debug'];
+      const inputC = ['', '', 'compose', 'b', '--debug'];
+      const configA = await parseArgv(inputA);
+      const configB = await parseArgv(inputB);
+      const configC = await parseArgv(inputC);
+      expect(configA.argv.debug).toEqual(true);
+      expect(configB.argv.debug).toEqual(true);
+      expect(configC.argv.debug).toEqual(true);
     });
   });
   describe('--help', () => {
     it('generates usage information', async () => {
-      const { output } = await parseArgv(['./', './', '--help']);
+      const input = ['', '', '--help'];
+      const { output } = await parseArgv(input);
       expect(output).toMatchSnapshot();
     });
     it('generates usage information for brew command', async () => {
-      const { output } = await parseArgv(['path', 'path', 'brew', '--help']);
+      const input = ['', '', 'brew', '--help'];
+      const { output } = await parseArgv(input);
       expect(output).toMatchSnapshot();
     });
     it('generates usage information for pick command', async () => {
-      const { output } = await parseArgv(['path', 'path', 'pick', '--help']);
+      const input = ['', '', 'pick', '--help'];
+      const { output } = await parseArgv(input);
       expect(output).toMatchSnapshot();
     });
     it('generates usage information for compose command', async () => {
-      const { output } = await parseArgv(['path', 'path', 'compose', '--help']);
+      const input = ['', '', 'compose', '--help'];
+      const { output } = await parseArgv(input);
       expect(output).toMatchSnapshot();
     });
   });
   describe('--version', () => {
     it('generates version information', async () => {
-      const { output } = await parseArgv(['path', 'path', '--version']);
+      const input = ['', '', '--version'];
+      const { output } = await parseArgv(input);
       expect(output).toEqual(version);
     });
   });

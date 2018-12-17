@@ -1,4 +1,4 @@
 // @flow
-import type { RunConfig } from 'types/Config';
+import run from './run';
 
-export default function run(config: RunConfig): void {}
+export default { run };
