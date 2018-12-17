@@ -1,9 +1,10 @@
 // @flow
+import type { Command, Yargs } from 'types/Yargs';
 
-export const brew = {
+export const brew: Command = {
   cmd: ['brew [recipe]', '$0'],
   desc: 'Brew a recipe',
-  builder: (yargs: any) => {
+  builder: (yargs: Yargs) => {
     yargs.positional('recipe', {
       type: 'string',
       describe: 'The recipe you want to brew',
@@ -26,10 +27,10 @@ export const brew = {
   },
 };
 
-export const pick = {
+export const pick: Command = {
   cmd: 'pick [ingredients...]',
   desc: 'Pick ingredients from a recipe',
-  builder: (yargs: any) => {
+  builder: (yargs: Yargs) => {
     yargs.positional('ingredients', {
       type: 'array',
       describe: 'The ingredients you want to pick',
@@ -49,10 +50,10 @@ export const pick = {
   },
 };
 
-export const compose = {
+export const compose: Command = {
   cmd: 'compose [name] [ingredients...]',
   desc: 'compose a new recipe',
-  builder: (yargs: any) => {
+  builder: (yargs: Yargs) => {
     yargs.positional('name', {
       type: 'string',
       describe: 'The name of your recipe',

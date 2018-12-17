@@ -1,5 +1,7 @@
 // @flow
-export const dryRun = {
+import type { Option } from 'types/Yargs';
+
+export const dryRun: Option = {
   key: 'dryRun',
   options: {
     type: 'boolean',
@@ -8,7 +10,7 @@ export const dryRun = {
   },
 };
 
-export const silent = {
+export const silent: Option = {
   key: 'silent',
   options: {
     type: 'boolean',
@@ -17,7 +19,7 @@ export const silent = {
   },
 };
 
-export const noPrompt = {
+export const noPrompt: Option = {
   key: 'noPrompt',
   options: {
     type: 'boolean',
@@ -26,7 +28,7 @@ export const noPrompt = {
   },
 };
 
-export const debug = {
+export const debug: Option = {
   key: 'debug',
   options: {
     type: 'boolean',
