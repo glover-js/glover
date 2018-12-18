@@ -21,6 +21,7 @@
     "flow-bin": "^0.87.0",
     "jest": "^23.6.0",
     "lerna": "^3.6.0",
+    "memory-fs": "^0.4.1",
     "prettier": "^1.15.3",
     "prettier-eslint": "^8.8.2",
     "rollup": "^0.67.4",
