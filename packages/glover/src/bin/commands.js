@@ -45,7 +45,7 @@ export const pick: Command = {
       alias: 'o',
       type: 'string',
       describe: 'Output path',
-      default: process.cwd(),
+      default: 'cwd',
     });
   },
 };
@@ -72,7 +72,7 @@ export const compose: Command = {
       alias: 'o',
       type: 'string',
       describe: 'Output path',
-      default: process.cwd(),
+      default: 'cwd',
     });
   },
 };

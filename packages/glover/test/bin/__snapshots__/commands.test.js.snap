@@ -75,7 +75,7 @@ Array [
     "output",
     Object {
       "alias": "o",
-      "default": "/Users/ollelauribostrom/Desktop/glover",
+      "default": "cwd",
       "describe": "Output path",
       "type": "string",
     },
@@ -110,7 +110,7 @@ Array [
     "output",
     Object {
       "alias": "o",
-      "default": "/Users/ollelauribostrom/Desktop/glover",
+      "default": "cwd",
       "describe": "Output path",
       "type": "string",
     },

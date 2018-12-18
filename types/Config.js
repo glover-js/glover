@@ -5,6 +5,6 @@ import type { Argv } from 'types/Yargs';
 export type RunConfig = {
   argv: Argv,
   command: Command,
-  output: string,
+  output?: string,
   rawArgv: Array<string>,
 };

@@ -2,11 +2,13 @@
 import type { Argv } from 'types/Yargs';
 import type { ResolveFn, RejectFn } from 'types/Promise';
 import type { RunConfig } from 'types/config';
+import type { Command } from 'types/Command';
 
 import yargs from 'yargs';
 import { registerCommands } from './commands';
 import { registerOptions } from './options';
 import glover from '..';
+import parseCommand from '../utils/parseCommand';
 
 export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
   return new Promise((resolve: ResolveFn<RunConfig>, reject: RejectFn) => {
@@ -15,13 +17,13 @@ export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
     yargs.scriptName('glover');
     yargs.wrap(120);
     yargs.parse(rawArgv.slice(2), (err: Error, argv: Argv, output: string) => {
+      const command: Command = parseCommand(argv);
       if (err) {
         return reject(err);
       }
       return resolve({
         argv,
-        // $FlowFixMe
-        command: argv._[0] || 'brew',
+        command,
         output,
         rawArgv,
       });

@@ -86,7 +86,7 @@ describe('Tests for cli', () => {
       const configC = await parseArgv(inputC);
       expect(configA.argv.output).toEqual('p');
       expect(configB.argv.output).toEqual('p');
-      expect(configC.argv.output).toEqual(process.cwd());
+      expect(configC.argv.output).toEqual('cwd');
     });
   });
   describe('command: compose', () => {
@@ -124,7 +124,7 @@ describe('Tests for cli', () => {
       const configC = await parseArgv(inputC);
       expect(configA.argv.output).toEqual('p');
       expect(configB.argv.output).toEqual('p');
-      expect(configC.argv.output).toEqual(process.cwd());
+      expect(configC.argv.output).toEqual('cwd');
     });
   });
   describe('global options', () => {

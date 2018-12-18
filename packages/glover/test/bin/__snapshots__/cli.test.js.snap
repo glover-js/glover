@@ -189,7 +189,7 @@ Options:
   --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
   --skipStep        Skip steps in the recipe                                                       [array] [default: []]
   --extend, -e      Recipe(s) you want to extend                                                   [array] [default: []]
-  --output, -o      Output path                             [string] [default: \\"/Users/ollelauribostrom/Desktop/glover\\"]"
+  --output, -o      Output path                                                                [string] [default: \\"cwd\\"]"
 `;
 
 exports[`Tests for cli --help generates usage information for pick command 1`] = `
@@ -212,5 +212,5 @@ Options:
   --skipIngredient  Skip ingredients in the recipe                                                 [array] [default: []]
   --skipStep        Skip steps in the recipe                                                       [array] [default: []]
   --prompt, -p                                                                                [boolean] [default: false]
-  --output, -o      Output path                             [string] [default: \\"/Users/ollelauribostrom/Desktop/glover\\"]"
+  --output, -o      Output path                                                                [string] [default: \\"cwd\\"]"
 `;
