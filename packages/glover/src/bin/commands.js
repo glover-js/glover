@@ -52,7 +52,7 @@ export const pick: Command = {
 
 export const compose: Command = {
   cmd: 'compose [name] [ingredients...]',
-  desc: 'compose a new recipe',
+  desc: 'Compose a new recipe',
   builder: (yargs: Yargs) => {
     yargs.positional('name', {
       type: 'string',
@@ -76,3 +76,8 @@ export const compose: Command = {
     });
   },
 };
+
+export function registerCommands(yargs: Yargs): void {
+  const commands = [brew, pick, compose];
+  commands.map((cmd: Command) => yargs.command(cmd.cmd, cmd.desc, cmd.builder));
+}

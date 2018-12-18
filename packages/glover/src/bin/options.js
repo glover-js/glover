@@ -1,5 +1,5 @@
 // @flow
-import type { Option } from 'types/Yargs';
+import type { Option, Yargs } from 'types/Yargs';
 
 export const dryRun: Option = {
   key: 'dryRun',
@@ -36,3 +36,8 @@ export const debug: Option = {
     default: false,
   },
 };
+
+export function registerOptions(yargs: Yargs) {
+  const options = [dryRun, silent, noPrompt, debug];
+  options.map((option: Option) => yargs.option(option.key, option.options));
+}

@@ -28,7 +28,7 @@ describe('Tests for commands', () => {
   describe('compose', () => {
     it('exposes the correct cmd and desc properties', () => {
       expect(compose.cmd).toEqual('compose [name] [ingredients...]');
-      expect(compose.desc).toEqual('compose a new recipe');
+      expect(compose.desc).toEqual('Compose a new recipe');
     });
     it('exposes a correct builder function', () => {
       const yargs = { positional: jest.fn(), option: jest.fn() };

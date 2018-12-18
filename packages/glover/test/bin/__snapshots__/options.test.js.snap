@@ -26,6 +26,7 @@ Object {
       "type": "boolean",
     },
   },
+  "registerOptions": [Function],
   "silent": Object {
     "key": "silent",
     "options": Object {
