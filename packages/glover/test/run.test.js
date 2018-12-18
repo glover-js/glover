@@ -16,7 +16,10 @@ describe('Tests for glover.run', () => {
     });
   });
   it('rejects unknown commands', async () => {
-    const runConfig = { command: 'unknown' };
+    const runConfig = {
+      command: 'unknown',
+      rawArgv: ['', '', 'unknown', 'argument'],
+    };
     await expect(glover.run(runConfig)).rejects.toThrowErrorMatchingSnapshot();
   });
 });

@@ -5,6 +5,7 @@ import type { RunResult } from 'types/Result';
 import brew from './brew';
 import pick from './pick';
 import compose from './compose';
+import CommandNotFoundError from './utils/CommandNotFoundError';
 
 async function run(config: RunConfig): Promise<RunResult> {
   if (config.command === 'brew') {
@@ -16,7 +17,7 @@ async function run(config: RunConfig): Promise<RunResult> {
   if (config.command === 'compose') {
     return compose(config);
   }
-  throw new Error(`Command: ${config.command} not found`);
+  throw new CommandNotFoundError(config.command);
 }
 
 export default {

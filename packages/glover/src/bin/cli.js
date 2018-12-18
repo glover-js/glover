@@ -5,10 +5,12 @@ import type { RunConfig } from 'types/config';
 import type { Command } from 'types/Command';
 
 import yargs from 'yargs';
+import { Logger } from 'glover-logger';
 import { registerCommands } from './commands';
 import { registerOptions } from './options';
 import glover from '..';
 import parseCommand from '../utils/parseCommand';
+import CommandNotFoundError from '../utils/CommandNotFoundError';
 
 export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
   return new Promise((resolve: ResolveFn<RunConfig>, reject: RejectFn) => {
@@ -17,7 +19,7 @@ export function parseArgv(rawArgv: Array<string>): Promise<RunConfig> {
     yargs.scriptName('glover');
     yargs.wrap(120);
     yargs.parse(rawArgv.slice(2), (err: Error, argv: Argv, output: string) => {
-      const command: Command = parseCommand(argv);
+      const command: Command = parseCommand(argv, rawArgv);
       if (err) {
         return reject(err);
       }
@@ -41,7 +43,13 @@ if (process.env.NODE_ENV !== 'test') {
       return glover.run(runConfig);
     })
     .catch((err: Error) => {
-      console.log(err); // eslint-disable-line no-console
+      if (err instanceof CommandNotFoundError) {
+        const log = new Logger();
+        log.error(err.message);
+        log.info('Run glover --help to list available commands');
+      } else {
+        console.log(err); // eslint-disable-line no-console
+      }
       process.exit(1);
     });
 }

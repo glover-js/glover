@@ -1,3 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tests for glover.run rejects unknown commands 1`] = `"Command: unknown not found"`;
+exports[`Tests for glover.run rejects unknown commands 1`] = `"Error: unknown is not a valid glover command"`;

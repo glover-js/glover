@@ -16,7 +16,8 @@ describe('Tests for parseCommand', () => {
     expect(parseCommand(argvB)).toEqual('brew');
   });
   it('throws an error if the command is invalid', () => {
-    const argv = { _: ['invalid-command'] };
-    expect(() => parseCommand(argv)).toThrowErrorMatchingSnapshot();
+    const argv = { _: ['argument'] };
+    const rawArgv = ['', '', 'invalid-command', 'argument'];
+    expect(() => parseCommand(argv, rawArgv)).toThrowErrorMatchingSnapshot();
   });
 });
